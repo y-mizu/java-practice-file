@@ -41,6 +41,26 @@ class Station implements Comparable<Station> {
         this.note2 = data[11];
         this.update = data[12];
     }
+    // RF mainに大量にばらまかれていた各要素をstationにてStringBuilderを使って たくさん作る そしてmianへ、、、
+    public String toCSVLine(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(this.num + ",");
+        builder.append(this.line + ",");
+        builder.append(this.stationNumber + ",");
+        builder.append(this.stationName + ",");
+        builder.append(this.howtoRead + ",");
+        builder.append(this.englishName + ",");
+        builder.append(this.stationManager + ",");
+        builder.append(this.address + ",");
+        builder.append(this.height1 + ",");
+        builder.append(this.height2 + ",");
+        builder.append(this.note1 + ",");
+        builder.append(this.note2 + ",");
+        builder.append(this.update + ",");
+
+        return builder.toString();
+    }
+
     //9. int型のcompareToメソッドに引数stationを引き渡し、この中でsort対象のクラスの項目の比較を行う (0か1か-1をreturnして比較)
     public int compareTo(Station station) {
 
