@@ -13,10 +13,10 @@ public class Main {
             File f = new File("station2.csv");
 
             //12. InputStreamReader型の変数osrを宣言、インスタンスを生成して左辺に代入 (文字コードの指定)
-            InputStreamReader osr = new InputStreamReader(new FileInputStream(f), "SJIS");
+            InputStreamReader isr = new InputStreamReader(new FileInputStream(f), "SJIS");
 
             //13. BufferedReader型の変数brを宣言、インスタンスを生成し引数osr 左辺に代入
-            BufferedReader br = new BufferedReader(osr);
+            BufferedReader br = new BufferedReader(isr);
 
             //14. stationコレクションを作成　
             ArrayList<Station> stationList = new ArrayList<Station>();
