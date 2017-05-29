@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Main{
-    static final int skip_size = 3;
-    public static void main(String args[]){
-        try{
+public class Main {
+    static final int SKIP_SIZE = 3;
+
+    public static void main(String args[]) {
+        try {
             //11. File型変数fを宣言してインスタンスを生成、左辺に代入 (csvファイルを読み込む) 
             File f = new File("station2.csv");
 
@@ -23,7 +24,7 @@ public class Main{
             List<String> skipList = new ArrayList<>();
 
             //RF for文を使って最初の三行を読み飛ばしつつ、それらをリストに格納する
-            for(int i =0; i < skip_size; i++){
+            for (int i = 0; i < SKIP_SIZE; i++) {
                 String skipped = br.readLine();
                 skipList.add(skipped);
             }
@@ -31,7 +32,7 @@ public class Main{
             //15. String型の変数lineを宣言、readLineメソッドの戻り値を代入する(csvの1行を変数化) 
             String line;
             //17. lineがnullかどうかを判定(nullでない場合 18〜20 を実行) 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 //18.  data配列を宣言し、lineをsplitにて,で区切ったものを左辺に代入 (リスト変数はファイルを読込もの 行を,で区切り配列に変換)
                 String[] data = line.split(",", 0);
 
@@ -48,21 +49,20 @@ public class Main{
             //22. FileWriter型の変数fwを宣言し、インスタンスを生成する
             FileWriter fw = new FileWriter("stationSort.csv");
             //23. station2.csvファイルにある最初の3行を書出
-            for(String sl: skipList){
-                fw.write(sl+"\n");
+            for (String sl : skipList) {
+                fw.write(sl + "\n");
             }
 
             //24.　stationListから抽出した各要素を全ての行CSVに書き出す(出力) & RF StationクラスのtoCSVLineを呼び出す
-            for (Station st :stationList) {
-                fw.write(st.toCSVLine());
-                fw.write("\n");
+            for (Station st : stationList) {
+                fw.write(st.toCSVLine() + "\n");
             }
             //25. FileWriterを閉じる
             fw.close();
             //26. bufferedReaderを閉じる
             br.close();
 
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e);
         }
     }
